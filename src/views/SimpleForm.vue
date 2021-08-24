@@ -2,17 +2,13 @@
   <div>
     <h1>Create an event</h1>
     <form>
-      <label>Select a category</label>
-      <select v-model="event.category">
-        <option
-          v-for="option in categories"
-          :value="option"
-          :key="option"
-          :selected="option === event.category"
-        >
-          {{ option }}
-        </option>
-      </select>
+      <BaseSelect
+        v-model="event.category"
+        :options="categories"
+        label="Select a category"
+      />
+
+      <pre>{{ event }}</pre>
 
       <h3>Name & describe your event</h3>
 
@@ -23,8 +19,6 @@
       <h3>Where is your event?</h3>
 
       <BaseInput v-model="event.location" label="Location" type="text" />
-
-      <pre>{{ event }}</pre>
 
       <h3>Are pets allowed?</h3>
       <div>
@@ -55,8 +49,9 @@
 
 <script>
 import BaseInput from '@/components/BaseInput.vue'
+import BaseSelect from '@/components/BaseSelect.vue'
 export default {
-  components: { BaseInput },
+  components: { BaseInput, BaseSelect },
   data() {
     return {
       categories: [
