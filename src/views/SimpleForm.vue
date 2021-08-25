@@ -48,10 +48,7 @@
 </template>
 
 <script>
-import BaseInput from '@/components/BaseInput.vue'
-import BaseSelect from '@/components/BaseSelect.vue'
 export default {
-  components: { BaseInput, BaseSelect },
   data() {
     return {
       categories: [
