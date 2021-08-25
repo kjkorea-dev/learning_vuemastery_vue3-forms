@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Create an event</h1>
-    <form>
+    <form @submit.prevent="sendForm">
       <BaseSelect
         v-model="event.category"
         :options="categories"
@@ -46,9 +46,8 @@
 </template>
 
 <script>
-import BaseCheckbox from '../components/BaseCheckbox.vue'
+import axios from 'axios'
 export default {
-  components: { BaseCheckbox },
   data() {
     return {
       categories: [
@@ -82,6 +81,18 @@ export default {
         },
       ],
     }
+  },
+  methods: {
+    sendForm() {
+      axios
+        .post('http://localhost:3000/events', this.event)
+        .then((response) => {
+          console.log('Response', response)
+        })
+        .catch((error) => {
+          console.log('Error', error)
+        })
+    },
   },
 }
 </script>
