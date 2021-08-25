@@ -8,8 +8,6 @@
         label="Select a category"
       />
 
-      <pre>{{ event }}</pre>
-
       <h3>Name & describe your event</h3>
 
       <BaseInput v-model="event.title" label="Title" type="text" />
@@ -33,14 +31,14 @@
 
       <h3>Extras</h3>
       <div>
-        <input type="checkbox" v-model="event.extras.catering" class="field" />
-        <label>Catering</label>
+        <BaseCheckbox v-model="event.extras.catering" label="Catering" />
       </div>
 
       <div>
-        <input type="checkbox" v-model="event.extras.music" class="field" />
-        <label>Live music</label>
+        <BaseCheckbox v-model="event.extras.music" label="Live music" />
       </div>
+
+      <pre>{{ event }}</pre>
 
       <button class="button -fill-gradient" type="submit">Submit</button>
     </form>
@@ -48,7 +46,9 @@
 </template>
 
 <script>
+import BaseCheckbox from '../components/BaseCheckbox.vue'
 export default {
+  components: { BaseCheckbox },
   data() {
     return {
       categories: [
