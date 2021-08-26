@@ -8,6 +8,7 @@
         $emit('update:modelValue', $event.target.value)
       },
     }"
+    class="field"
   >
     <!--  
       :v-bind="$attrs"

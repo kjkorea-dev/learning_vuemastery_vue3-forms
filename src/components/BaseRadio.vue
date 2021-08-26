@@ -5,6 +5,7 @@
     :value="value"
     @change="$emit('update:modelValue', value)"
     v-bind="$attrs"
+    class="field"
   />
   <label v-if="label">{{ label }}</label>
 </template>
