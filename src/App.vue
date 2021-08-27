@@ -1,14 +1,14 @@
 <template>
-  <SimpleForm />
+  <LoginForm />
 </template>
 
 <script>
-import SimpleForm from '@/views/SimpleForm.vue'
+import LoginForm from '@/views/LoginForm.vue'
 
 export default {
   name: 'App',
   components: {
-    SimpleForm,
+    LoginForm,
   },
 }
 </script>
@@ -200,7 +200,8 @@ textarea {
 [type='text'],
 [type='number'],
 [type='search'],
-[type='password'] {
+[type='password'],
+[type='email'] {
   height: 52px;
   width: 100%;
   padding: 0 10px;
@@ -209,7 +210,8 @@ textarea {
 [type='text']:focus,
 [type='number']:focus,
 [type='search']:focus,
-[type='password']:focus {
+[type='password']:focus,
+[type='email']:focus {
   border-color: #39b982;
 }
 ::-webkit-file-upload-button {
